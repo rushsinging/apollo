@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+{% from '_form.html' import render_field %}
+
+{% block style %}
+{{ super() }}
+<link href="{{ static_file('css/apollo/settings.css') }}" rel="stylesheet" type="text/css"/> 
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li {% if request.route.name == 'settings' -%}class="active"{%- endif %}><a href="{{ url_for('apollo:www.settings', ukey=request.ukey) }}">Profile</a></li>
+    </ul>
+    <form class="form-horizontal" role="form" method="POST">
+        {{ render_field(form.nickname) }}
+        {{ render_field(form.title) }}
+        {{ render_field(form.summary) }}
+        {{ render_field(form.birthday) }}
+        {{ render_field(form.gender) }}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="保存修改" class="btn btn-default" />
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

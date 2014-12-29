@@ -1,0 +1,17 @@
+# Multiple app config
+DEVELOPMENT: &dev
+    APP_NAME: 'apollo'
+    APP_TYPE: 'app'
+    APP_BASE: 'bottle'
+    MODULE: 'apollo:app'
+    CLIENT_ID: 7131
+    CLIENT_SECRET: '55df5dde98eb34acb6b0b306a0b200fa'
+    DEBUG: true
+
+STAGING:
+    <<: *dev
+
+PRODUCTION:
+    <<: *dev
+    DEBUG: false
+    MAIL_DEBUG: false
