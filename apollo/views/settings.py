@@ -21,9 +21,12 @@ class SettingsView(MethodView):
         }
 
     def post(self, ukey):
+        print request.POST.allitems()
+        import sys
+        print sys.stdout
+        print sys.stdout.encoding
         user = UserModel.query.get(ukey)
 
-        print request.forms.get('birthday')
         form = UserSettingForm(request.forms)
         if not form.validate():
             return render_template('settings.html', user=user, form=form)

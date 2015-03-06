@@ -8,7 +8,7 @@ from . import forms
 
 
 class UserAPI(RESTfulOpenAPI):
-    path = '/oauth2/client'
+    path = '/user'
     methods = ['GET', 'POST', 'PUT']
 
     @resful_validator(forms.ukey)
